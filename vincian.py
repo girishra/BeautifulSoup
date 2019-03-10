@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 result=requests.get("https://vin01.tk/")
-result
+print(result)
 src=result.content
 soup=BeautifulSoup(src,'lxml')
 company=[]
@@ -11,4 +11,4 @@ for match in selects:
 for categories in soup.div.center.find_all('a'):
         categories=categories.get_text()
         company.append(categories)
-company
+print(company)
