@@ -8,7 +8,7 @@
 8.selects = soup.findAll('select')
 9.for match in selects:
         match.decompose()
-10.for categories in                 soup.div.center.find_all('a'):
+10.for categories in soup.div.center.find_all('a'):
         categories=categories.get_text()
         company.append(categories)
 11.company
