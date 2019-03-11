@@ -11,4 +11,5 @@ for match in selects:
 for categories in soup.div.center.find_all('a'):
         categories=categories.get_text().strip()
         company.append(categories)
-print(company)
+for letter in company:
+        print(letter)
