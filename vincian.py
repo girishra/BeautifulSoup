@@ -9,7 +9,7 @@ selects = soup.findAll('font')
 for match in selects:
         match.decompose()
 for categories in soup.div.center.find_all('a'):
-        categories=categories.get_text().strip()
+        categories=categories.get_text().replace(')','')
         company.append(categories)
 for letter in company:
         print(letter)
