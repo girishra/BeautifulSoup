@@ -1,15 +1,17 @@
 from bs4 import BeautifulSoup
 import requests
+import re
 result=requests.get("https://vin01.tk/")
-print(result)
 src=result.content
 soup=BeautifulSoup(src,'lxml')
-company=[]
-selects = soup.findAll('font')
-for match in selects:
-        match.decompose()
-for categories in soup.div.center.find_all('a'):
-        categories=categories.get_text().replace(')','')
-        company.append(categories)
-for letter in company:
-        print(letter)
+for tag in soup.div.center('a'):
+    if tag.find('font'):
+        f=tag.find('font')
+        print(f.previousSibling)
+    else:
+        print(tag.text)
+other=soup.find('div').text
+c_companies=re.search('Few.*\n.*',other).group()
+cc=re.findall('\w+\\n',c_companies)
+for letter in c:
+    print(letter)
