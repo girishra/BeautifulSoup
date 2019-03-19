@@ -12,6 +12,6 @@ for tag in soup.div.center('a'):
         print(tag.text)
 other=soup.find('div').text
 c_companies=re.search('Few.*\n.*',other).group()
-cc=re.findall('\w+\\n',c_companies)
+cc=re.findall('[A-Za-z]+.\w+,',c_companies)
 for letter in cc:
     print(letter)
